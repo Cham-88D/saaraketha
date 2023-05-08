@@ -12,6 +12,7 @@ import RegScreen from "./screens/auth/reg";
 import LandingScreen from "./screens/start/landing";
 import Home from "./screens/home/home";
 import Detection from "./screens/home/detection"
+import Location from "./screens/home/locationtracker";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -135,6 +136,11 @@ export default function MainContainer() {
         <Stack.Screen
           name={"Initial"}
           component={Main}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={"Location"}
+          component={Location}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

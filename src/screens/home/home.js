@@ -11,6 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/core";
 import { FontFamily, FontSize, Color, Border } from "../../../GlobalStyles";
 
+
 const Home = () => {
   const navigation = useNavigation();
 
@@ -23,7 +24,7 @@ const Home = () => {
         <Text style={{ fontSize: 18, fontFamily: FontFamily.urbanistSemibold,}}>Dash Board</Text>
       </View>
       <View style={[styles.group]}>
-        <Pressable onPress={() => navigation.navigate("Home")}>
+        <Pressable onPress={() => navigation.navigate("Detection")}>
           <LinearGradient
             style={[styles.groupChild, styles.groupParentLayout]}
             locations={[0, 1]}
@@ -60,7 +61,7 @@ const Home = () => {
 
         <Pressable
           style={[styles.groupView]}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Location")}
         >
           <LinearGradient
             style={[styles.groupChild, styles.groupParentLayout]}
