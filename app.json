@@ -23,6 +23,9 @@
         "backgroundColor": "#ffffff"
       }
     },
+    "permission": [
+      "INTERNET"
+    ],
     "web": {
       "favicon": "./assets/icon.png"
     }
