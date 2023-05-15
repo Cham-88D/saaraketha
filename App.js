@@ -1,7 +1,7 @@
 import MainContainer from "./src/navigator";
-import { useFonts } from "expo-font"; 
+import { useFonts } from "expo-font";
 import { AuthProvider } from "./src/contexts/auth";
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts({
@@ -18,12 +18,12 @@ export default function App() {
   if (!fontsLoaded && !error) {
     return null;
   }
-  
+
   return (
     <AuthProvider>
       <MainContainer />
     </AuthProvider>
   );
-
-
 }
+
+//comment
