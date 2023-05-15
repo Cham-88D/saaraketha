@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 
-const RecomendationResult = ({ route }) => {
+const PredictionResult = ({ route }) => {
   const { label } = route.params;
 
   return (
     <ImageBackground
-      style={styles.backgroundImage}
-      source={require("../Background.jpg")}
+      source={require("../../../assets/bg3.png")}
+      style={styles.landing}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Rice Variety Recommendation</Text>
         <View style={styles.box}>
-          <Text
-            style={styles.label}
-          >{`Recommended rice variety: ${label}`}</Text>
+          <Text style={styles.title}>Yield Prediction</Text>
+          <Text style={styles.label}>{`Yield Prediction: ${label}`}</Text>
+          <Text style={[styles.label, { marginTop: 6 }]}>
+            Smaple Description
+          </Text>
         </View>
       </View>
     </ImageBackground>
@@ -26,17 +27,24 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
   },
+  landing: {
+    backgroundColor: "#edebeb",
+    flex: 1,
+    width: "100%",
+    overflow: "hidden",
+  },
   container: {
     flex: 1,
     padding: 16,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#00000033",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 32,
-    color: "#fff",
+    color: "#000",
   },
   box: {
     backgroundColor: "#fff",
@@ -50,6 +58,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    height: 250,
+    width: 340,
+    alignItems: "center",
   },
   label: {
     fontSize: 20,
@@ -58,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RecomendationResult;
+export default PredictionResult;

@@ -11,7 +11,12 @@ import LoginScreen from "./screens/auth/login";
 import RegScreen from "./screens/auth/reg";
 import LandingScreen from "./screens/start/landing";
 import Home from "./screens/home/home";
-import Detection from "./screens/home/detection"
+import Detection from "./screens/home/detection";
+import RiceVarietyRecommendation from "./screens/home/recomendation";
+import RecomendationResult from "./screens/home/recomendationResult";
+import Rice from "./screens/home/riceSection";
+import PredictionScreen from "./screens/home/Prediction";
+import PredictionResult from "./screens/home/PredictionResult";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -29,15 +34,13 @@ export default function MainContainer() {
     return (
       <Tab.Navigator
         screenOptions={({ route }) => ({
-
-
-          tabBarStyle:{
+          tabBarStyle: {
             backgroundColor: "#ffffff",
-            shadowColor:"black",
-            height:55,
+            shadowColor: "black",
+            height: 55,
           },
 
-           tabBarShowLabel:false,
+          tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => {
             let iconName;
 
@@ -45,19 +48,18 @@ export default function MainContainer() {
               iconName = "home";
             } else if (route.name === "Settings") {
               iconName = "bar-chart";
-            }else if (route.name === "Detection") {
+            } else if (route.name === "Detection") {
               iconName = "md-scan-circle";
-            }else if (route.name === "dd") {
+            } else if (route.name === "Recomendation") {
               iconName = "leaf";
-            }else if (route.name === "ee") {
+            } else if (route.name === "ee") {
               iconName = "people-circle";
             }
 
-            return <Ionicons name={iconName} size={32} color={color}  />;
+            return <Ionicons name={iconName} size={32} color={color} />;
           },
           tabBarActiveTintColor: "#86cc29",
           tabBarInactiveTintColor: "black",
-     
         })}
       >
         <Tab.Screen
@@ -76,11 +78,11 @@ export default function MainContainer() {
           options={{ headerShown: false }}
         />
         <Tab.Screen
-          name={"dd"}
-          component={Home}
+          name={"Recomendation"}
+          component={Rice}
           options={{ headerShown: false }}
         />
-         <Tab.Screen
+        <Tab.Screen
           name={"ee"}
           component={Home}
           options={{ headerShown: false }}
@@ -136,6 +138,31 @@ export default function MainContainer() {
           name={"Initial"}
           component={Main}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={"Rice"}
+          component={Rice}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={"RecomendationResult"}
+          component={RecomendationResult}
+          options={{ headerShown: true, title: "Recomendation Result" }}
+        />
+        <Stack.Screen
+          name={"RiceVarietyRecommendation"}
+          component={RiceVarietyRecommendation}
+          options={{ headerShown: true, title: "Rice Variety Recommendation" }}
+        />
+        <Stack.Screen
+          name={"PredictionScreen"}
+          component={PredictionScreen}
+          options={{ headerShown: true, title: "Prediction Screen" }}
+        />
+        <Stack.Screen
+          name={"PredictionResult"}
+          component={PredictionResult}
+          options={{ headerShown: true, title: "Prediction Result" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

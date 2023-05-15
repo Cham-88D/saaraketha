@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
-  TextInput,
   View,
-  Button,
   ImageBackground,
   ScrollView,
   Alert,
 } from "react-native";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import { TextInput, Button } from "react-native-paper";
 
 export default function PredictionScreen() {
   const [state, setState] = useState("");
@@ -49,12 +48,13 @@ export default function PredictionScreen() {
   };
 
   const predictCropYield = () => {
+    console.log("calling " + !validateInputs());
     if (!validateInputs()) {
       return;
     }
 
     axios
-      .post("http://192.168.8.101:5000/predict", {
+      .post("http://192.168.8.103:5000/predict", {
         state: state,
         year: 2020,
         nitrogen_presentage: nitrogen_prg,
@@ -78,104 +78,160 @@ export default function PredictionScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require("../Background.jpg")}
-        style={styles.background}
-      >
+    <ImageBackground
+      source={require("../../../assets/bg3.png")}
+      style={styles.landing}
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>Rice Variety Recommendation</Text>
         <ScrollView>
           <View style={styles.formContainer}>
-            <Text style={{ color: "white", fontSize: 20 }}>State:</Text>
             <TextInput
               style={styles.input}
               onChangeText={(text) => setState(text)}
               value={state}
+              label="State"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            {/* <Text>Year:</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => setYear(text)}
-        value={year}
-      /> */}
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Nitrogen Presentage:
-            </Text>
             <TextInput
               style={styles.input}
               onChangeText={(text) => setNitrogenPrg(text)}
               value={nitrogen_prg}
+              label="Nitrogen percentage"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Nitrogen Pounds _Acre:
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setNitrogenPoundsAcre(text)}
               value={nitrogen_Pounds_Acre}
+              label="Nitrogen Pounds per Acre "
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Phosphorous Presentage:
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setPhosphorousPrg(text)}
               value={phosphorous_prg}
+              label="Phosphorous Presentage"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Phosphorous Pounds_Acre:
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setPhosphorousPoundsAcre(text)}
               value={phosphorous_Pounds_Acre}
+              label="Phosphorous Pounds per Acre"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Potash Presentage:
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setPotashPrg(text)}
               value={potash_prg}
+              label="Potash Presentage"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Potash Pounds_Acre:
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setPotashPoundsAcre(text)}
               value={potash_pounds_Acre}
+              label="Potash Presentage per acre"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Area Planted (in acres):
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setAreaPlantedAcres(text)}
               value={areaPlanted_acres}
+              label="Area Planted (in acres)"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Harvested Area (in acres):
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setHarvestedAreaAcres(text)}
               value={harvested_Area_acres}
+              label="Harvested Area (in acres)"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
-            <Text style={{ color: "white", fontSize: 20 }}>
-              Lint Yield (in pounds harvested per acre):
-            </Text>
+
             <TextInput
               style={styles.input}
               onChangeText={(text) => setLintYield(text)}
               value={lint_Yield_Pounds_Harvested_Acre}
+              label="Amount of pesticide (per acre)"
+              keyboardType="numeric"
+              selectionColor="#50D100"
+              underlineColor="#50D100"
+              activeUnderlineColor="#50D100"
+              outlineColor="#E9FFE5"
+              activeOutlineColor="#E9FFE5"
+              contentStyle={{ backgroundColor: "#E9FFE5" }}
             />
+
+            <Button
+              mode="contained"
+              onPress={predictCropYield}
+              style={styles.button}
+            >
+              Predict Crop Yield
+            </Button>
           </View>
-          <Button
-            title="Predict Crop Yield"
-            onPress={predictCropYield}
-            style={styles.button}
-            textStyle={styles.buttonText}
-          />
 
           {prediction !== "" && (
             <Text style={styles.prediction}>
@@ -183,37 +239,32 @@ export default function PredictionScreen() {
             </Text>
           )}
         </ScrollView>
-      </ImageBackground>
-    </View>
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   formContainer: {
-    borderWidth: 5,
-    borderRadius: 5,
-    borderColor: "#ccc",
-    padding: 20,
-    marginBottom: 20,
-    marginTop: 70,
+    width: "100%",
+    height: "100%",
   },
   input: {
-    height: 30,
-    borderColor: "#ccc",
-    borderWidth: 2,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    backgroundColor: "yellow",
-    borderColor: "#ccc",
+    marginVertical: 8,
   },
-
+  landing: {
+    backgroundColor: "#edebeb",
+    flex: 1,
+    width: "100%",
+    overflow: "hidden",
+  },
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#f9f9f9",
-    resizeMode: "cover",
-    justifyContent: "center",
+    padding: 16,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
   },
   background: {
     flex: 1,
@@ -230,10 +281,8 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   button: {
-    marginTop: 20,
-    backgroundColor: "#0099ff",
-    padding: 10,
-    borderRadius: 5,
+    marginVertical: 16,
+    backgroundColor: "#50D100",
   },
   buttonText: {
     color: "#fff",
