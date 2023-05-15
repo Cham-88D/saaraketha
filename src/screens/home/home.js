@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import {
   Image,
   StyleSheet,
@@ -6,6 +6,7 @@ import {
   Text,
   Pressable,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/core";
@@ -19,110 +20,128 @@ const Home = () => {
       source={require("../../../assets/bg3.png")}
       style={styles.landing}
     >
-       <View style={{ marginLeft: 20,marginTop:10 }}>
-        <Text style={{ fontSize: 18, fontFamily: FontFamily.urbanistSemibold,}}>Dash Board</Text>
-      </View>
-      <View style={[styles.group]}>
-        <Pressable onPress={() => navigation.navigate("Detection")}>
-          <LinearGradient
-            style={[styles.groupChild, styles.groupParentLayout]}
-            locations={[0, 1]}
-            colors={["#5ebc00", "#bbff4d"]}
-          />
-          <Image
-            style={[styles.groupItem, styles.groupPosition]}
-            resizeMode="cover"
-            source={require("../../../assets/g3.png")}
-          />
-          <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
-            Disease Detection
+      <View style={styles.container}>
+        <View style={{ marginLeft: 20, marginTop: 10 }}>
+          <Text
+            style={{ fontSize: 18, fontFamily: FontFamily.urbanistSemibold }}
+          >
+            Dash Board
           </Text>
-        </Pressable>
-
-        <Pressable
-          style={[styles.groupView]}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <LinearGradient
-            style={[styles.groupChild, styles.groupParentLayout]}
-            locations={[0, 1]}
-            colors={["#5ebc00", "#bbff4d"]}
-          />
-          <Image
-            style={[styles.groupItem, styles.groupPosition]}
-            resizeMode="cover"
-            source={require("../../../assets/g4.png")}
-          />
-          <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
-          Location Tracker
-          </Text>
-        </Pressable>
-
-        <Pressable
-          style={[styles.groupView]}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <LinearGradient
-            style={[styles.groupChild, styles.groupParentLayout]}
-            locations={[0, 1]}
-            colors={["#5ebc00", "#bbff4d"]}
-          />
-          <Image
-            style={[styles.groupItem, styles.groupPosition]}
-            resizeMode="cover"
-            source={require("../../../assets/g2.png")}
-          />
-          <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
-          Rice Variety Selection
-          </Text>
-        </Pressable>
-
-        <Pressable
-          style={[styles.groupView]}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <LinearGradient
-            style={[styles.groupChild, styles.groupParentLayout]}
-            locations={[0, 1]}
-            colors={["#5ebc00", "#bbff4d"]}
-          />
-          <Image
-            style={[styles.groupItem, styles.groupPosition]}
-            resizeMode="cover"
-            source={require("../../../assets/g1.png")}
-          />
-          <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
-          Crowd Source
-          </Text>
-        </Pressable>
-
-        <View style={[styles.featuredTag, styles.tagLayout]}>
-          <View style={styles.rectangleViewShadowBox} />
-          <Text style={[styles.key, styles.keyTypo]}>What’s New</Text>
-          <Text style={[styles.key1, styles.keyPosition]}>
-            View Saaraketha's upcoming exciting features!
-          </Text>
-          <View style={[styles.featuredTagItem, styles.groupChild2Layout]} />
-          <Text style={[styles.text, styles.keyTypo]}>⚡️</Text>
         </View>
 
-        <View style={[styles.featuredTag, styles.tagLayout, styles.mg]}>
-          <View style={styles.rectangleViewShadowBox} />
-          <Text style={[styles.key, styles.keyTypo]}>Upgrade to pro</Text>
-          <Text style={[styles.key1, styles.keyPosition]}>
-            Experience Saaraketha's premium features!
-          </Text>
-          <View style={[styles.rectangleParent3, styles.groupChild2Layout]}>
+        <View style={[styles.group]}>
+          <TouchableOpacity
+            style={[styles.groupView, { width: 350, height: 60 }]}
+            onPress={() => {
+              navigation.navigate("Home");
+            }}
+          >
             <LinearGradient
-              style={[styles.groupChild2, styles.groupChild2Layout]}
-              locations={[0.01, 1]}
+              style={[styles.groupChild, styles.groupParentLayout]}
+              locations={[0, 1]}
               colors={["#5ebc00", "#bbff4d"]}
             />
             <Image
-              style={{ width: 20, height: 30, marginLeft: 5}}
+              style={[styles.groupItem, styles.groupPosition]}
               resizeMode="cover"
-              source={require("../../../assets/g5.png")}
+              source={require("../../../assets/g3.png")}
             />
+            <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
+              Disease Detection
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.groupView, { width: 350, height: 60 }]}
+            onPress={() => {
+              navigation.navigate("Home");
+            }}
+          >
+            <LinearGradient
+              style={[styles.groupChild, styles.groupParentLayout]}
+              locations={[0, 1]}
+              colors={["#5ebc00", "#bbff4d"]}
+            />
+            <Image
+              style={[styles.groupItem, styles.groupPosition]}
+              resizeMode="cover"
+              source={require("../../../assets/g4.png")}
+            />
+            <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
+              Location Tracker
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.groupView, { width: 350, height: 60 }]}
+            onPress={() => {
+              navigation.navigate("Recomendation");
+            }}
+          >
+            <LinearGradient
+              style={[styles.groupChild, styles.groupParentLayout]}
+              locations={[0, 1]}
+              colors={["#5ebc00", "#bbff4d"]}
+            />
+            <Image
+              style={[styles.groupItem, styles.groupPosition]}
+              resizeMode="cover"
+              source={require("../../../assets/g2.png")}
+            />
+            <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
+              Rice Variety Selection
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.groupView, { width: 350, height: 60 }]}
+            onPress={() => {
+              navigation.navigate("Home");
+            }}
+          >
+            <LinearGradient
+              style={[styles.groupChild, styles.groupParentLayout]}
+              locations={[0, 1]}
+              colors={["#5ebc00", "#bbff4d"]}
+            />
+            <Image
+              style={[styles.groupItem, styles.groupPosition]}
+              resizeMode="cover"
+              source={require("../../../assets/g1.png")}
+            />
+            <Text style={[styles.diseaseDetection, styles.ravinduTypo]}>
+              Crowd Source
+            </Text>
+          </TouchableOpacity>
+
+          <View style={[styles.featuredTag, styles.tagLayout]}>
+            <View style={styles.rectangleViewShadowBox} />
+            <Text style={[styles.key, styles.keyTypo]}>What’s New</Text>
+            <Text style={[styles.key1, styles.keyPosition]}>
+              View Saaraketha's upcoming exciting features!
+            </Text>
+            <View style={[styles.featuredTagItem, styles.groupChild2Layout]} />
+            <Text style={[styles.text, styles.keyTypo]}>⚡️</Text>
+          </View>
+
+          <View style={[styles.featuredTag, styles.tagLayout, styles.mg]}>
+            <View style={styles.rectangleViewShadowBox} />
+            <Text style={[styles.key, styles.keyTypo]}>Upgrade to pro</Text>
+            <Text style={[styles.key1, styles.keyPosition]}>
+              Experience Saaraketha's premium features!
+            </Text>
+            <View style={[styles.rectangleParent3, styles.groupChild2Layout]}>
+              <LinearGradient
+                style={[styles.groupChild2, styles.groupChild2Layout]}
+                locations={[0.01, 1]}
+                colors={["#5ebc00", "#bbff4d"]}
+              />
+              <Image
+                style={{ width: 20, height: 30, marginLeft: 5 }}
+                resizeMode="cover"
+                source={require("../../../assets/g5.png")}
+              />
+            </View>
           </View>
         </View>
       </View>
@@ -136,6 +155,10 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     overflow: "hidden",
+  },
+  container: {
+    flex: 1,
+    padding: 16,
   },
   ravinduTypo: {
     fontFamily: FontFamily.urbanistSemibold,
@@ -174,12 +197,15 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   group: {
-    marginLeft: 20,
-    marginTop: 70,
-    position: "absolute",
+    width: "100%",
+    height: "95%",
+    alignItems: "center",
+    // marginLeft: 20,
+    // marginTop: 70,
+    // position: "absolute",
   },
   groupView: {
-    marginTop: 75,
+    marginTop: 15,
   },
   keyTypo: {
     fontSize: FontSize.size_mini,
