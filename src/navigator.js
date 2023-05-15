@@ -18,6 +18,14 @@ import Rice from "./screens/home/riceSection";
 import PredictionScreen from "./screens/home/Prediction";
 import PredictionResult from "./screens/home/PredictionResult";
 
+import Upload from "./screens/upload/imageHome";
+import Aerial from "./screens/upload/aerial";
+import NonAerial from "./screens/upload/nonaerial";
+import Save from "./screens/upload/save";
+import ViewAll from "./screens/upload/viewAll";
+import View from "./screens/upload/view";
+
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -51,6 +59,7 @@ export default function MainContainer() {
             } else if (route.name === "Detection") {
               iconName = "md-scan-circle";
             } else if (route.name === "Recomendation") {
+            } else if (route.name === "dd") {
               iconName = "leaf";
             } else if (route.name === "ee") {
               iconName = "people-circle";
@@ -100,15 +109,175 @@ export default function MainContainer() {
           options={({}) => ({
             headerStyle: { backgroundColor: "#96E42E" },
             headerTitle: () => {},
-            headerRight: () => (
-              <Avatar
-                source={{
-                  uri: pic ? pic : "https://picsum.photos/seed/picsum/200/300",
-                }}
-                rounded
-                size={40}
-              />
-            ),
+            headerRight: () =>
+              pic ? (
+                <Avatar
+                  source={{
+                    uri: pic,
+                  }}
+                  rounded
+                  size={40}
+                />
+              ) : (
+                <Avatar
+                  source={require("../assets/profile.png")}
+                  rounded
+                  size={40}
+                />
+              ),
+            headerRightContainerStyle: { marginRight: 2 },
+          })}
+        />
+
+        <Drawer.Screen
+          name={"Upload"}
+          component={Upload}
+          options={({}) => ({
+            headerStyle: { backgroundColor: "#96E42E" },
+            headerTitle: () => {},
+            headerRight: () =>
+              pic ? (
+                <Avatar
+                  source={{
+                    uri: pic,
+                  }}
+                  rounded
+                  size={40}
+                />
+              ) : (
+                <Avatar
+                  source={require("../assets/profile.png")}
+                  rounded
+                  size={40}
+                />
+              ),
+            headerRightContainerStyle: { marginRight: 2 },
+          })}
+        />
+        <Drawer.Screen
+          name={"Aerial"}
+          component={Aerial}
+          options={({}) => ({
+            headerStyle: { backgroundColor: "#96E42E" },
+            headerTitle: () => {},
+            headerRight: () =>
+              pic ? (
+                <Avatar
+                  source={{
+                    uri: pic,
+                  }}
+                  rounded
+                  size={40}
+                />
+              ) : (
+                <Avatar
+                  source={require("../assets/profile.png")}
+                  rounded
+                  size={40}
+                />
+              ),
+            headerRightContainerStyle: { marginRight: 2 },
+          })}
+        />
+        <Drawer.Screen
+          name={"NonAerial"}
+          component={NonAerial}
+          options={({}) => ({
+            headerStyle: { backgroundColor: "#96E42E" },
+            headerTitle: () => {},
+            headerRight: () =>
+              pic ? (
+                <Avatar
+                  source={{
+                    uri: pic,
+                  }}
+                  rounded
+                  size={40}
+                />
+              ) : (
+                <Avatar
+                  source={require("../assets/profile.png")}
+                  rounded
+                  size={40}
+                />
+              ),
+            headerRightContainerStyle: { marginRight: 2 },
+          })}
+        />
+        <Drawer.Screen
+          name={"Save"}
+          component={Save}
+          options={({}) => ({
+            headerStyle: { backgroundColor: "#96E42E" },
+            headerTitle: () => {},
+            headerRight: () =>
+              pic ? (
+                <Avatar
+                  source={{
+                    uri: pic,
+                  }}
+                  rounded
+                  size={40}
+                />
+              ) : (
+                <Avatar
+                  source={require("../assets/profile.png")}
+                  rounded
+                  size={40}
+                />
+              ),
+            headerRightContainerStyle: { marginRight: 2 },
+          })}
+        />
+
+        <Drawer.Screen
+          name={"ViewAll"}
+          component={ViewAll}
+          options={({}) => ({
+            headerStyle: { backgroundColor: "#96E42E" },
+            headerTitle: () => {},
+            headerRight: () =>
+              pic ? (
+                <Avatar
+                  source={{
+                    uri: pic,
+                  }}
+                  rounded
+                  size={40}
+                />
+              ) : (
+                <Avatar
+                  source={require("../assets/profile.png")}
+                  rounded
+                  size={40}
+                />
+              ),
+            headerRightContainerStyle: { marginRight: 2 },
+          })}
+        />
+
+<Drawer.Screen
+          name={"View"}
+          component={View}
+          options={({}) => ({
+            headerStyle: { backgroundColor: "#96E42E" },
+            headerTitle: () => {},
+            headerRight: () =>
+              pic ? (
+                <Avatar
+                  source={{
+                    uri: pic,
+                  }}
+                  rounded
+                  size={40}
+                />
+              ) : (
+                <Avatar
+                  source={require("../assets/profile.png")}
+                  rounded
+                  size={40}
+                />
+              ),
             headerRightContainerStyle: { marginRight: 2 },
           })}
         />
