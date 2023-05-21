@@ -40,7 +40,7 @@ const RiceVarietyRecommendation = () => {
         });
         var config = {
           method: "post",
-          url: "http://192.168.8.103:5000/predictRice",
+          url: "http://192.168.8.102:5000/predictRice",
           headers: {
             "Content-Type": "application/json",
           },

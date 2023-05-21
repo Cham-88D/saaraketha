@@ -54,7 +54,7 @@ export default function PredictionScreen() {
     }
 
     axios
-      .post("http://192.168.8.103:5000/predict", {
+      .post("http://192.168.8.100:5000/predict", {
         state: state,
         year: 2020,
         nitrogen_presentage: nitrogen_prg,
